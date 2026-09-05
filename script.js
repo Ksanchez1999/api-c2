@@ -206,10 +206,8 @@ function showSuccessMsg(link){
   const $button = document.createElement('button');
   $button.className = 'btn-submit-custom btn-link btn-primary';
   $button.textContent = 'Obtener enlace';
+  $button.addEventListener('click', () => window.open(link, '_blank'));
 
-  $button.addEventListener('click', () => {
-    window.location.href = link;
-  });
 
   // CONTAINER ALL
   const $containerAll = document.createElement('div');
