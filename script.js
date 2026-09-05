@@ -59,7 +59,7 @@ document
 
     // FETCH
     try {
-      const response = await fetch('http://pagofacilvzla.com/api-c2', {
+      const response = await fetch('https://pagofacilvzla.com/api-c2', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
