@@ -1,0 +1,61 @@
+
+
+/* ============== 768PX ============== */
+@media (max-width: 768px) {
+  .parallax-container {
+    transform-style: flat;
+  }
+
+  .glass-card {
+    margin: 1rem;
+    padding: 2rem;
+  }
+
+  .header-logo {
+    width: 280px;
+    height: 100px;
+  }
+
+  .social-icons {
+    top: 20px;
+    right: 20px;
+    gap: 12px;
+  }
+
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  body {
+    overflow-y: auto;
+  }
+}
+
+
+
+
+
+/* ============== 480PX ============== */
+@media (max-width: 480px) {
+  .social-icons {
+    top: 15px;
+    right: 15px;
+    gap: 10px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}

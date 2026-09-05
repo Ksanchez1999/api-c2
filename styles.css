@@ -1,0 +1,450 @@
+
+/* ================ GENERAL ================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+  perspective: 1000px;
+  height: 100dvh;
+  background: #000000;
+}
+
+
+
+/* ================ BACKGROUND PARALLAX ================ */
+.parallax-container {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  border-radius: 20px;
+  width: 130%;
+  height: 130%;
+  transform-style: preserve-3d;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background-image: url("background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateZ(-100px) scale(1.5);
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: overlay;
+}
+
+.parallax-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.floating-element {
+  position: absolute;
+  background-image: url("logo.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 15px rgba(13, 229, 9, 0.6));
+}
+
+.floating-element:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  left: 18%;
+  animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  top: 65%;
+  right: 20%;
+  animation-delay: 2s;
+}
+
+.floating-element:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+
+
+/* ================ MAIN ================ */
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  z-index: 10;
+  height: 100dvh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
+}
+
+
+
+/* ================ GLASS CARD ================ */
+.glass-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 465px;
+  background: rgba(34, 34, 34, 0.85);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(229, 9, 20, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  max-width: 28rem;    
+  transform: translateY(0px) scale(1);
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.8s ease;
+  opacity: 1;
+}
+
+
+/* LOGO */
+.header-logo {
+  width: 320px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  background-image: url("logo_2.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: logoGlow 3s ease-in-out infinite;
+}
+
+
+/* ================ FORM ================ */
+#netflixForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.7rem;
+}
+
+#netflixForm > div {
+  position: relative;
+}
+
+
+/* INPUT */
+.input-email-custom {
+  font-size: 16px;
+  width: 100%;
+  padding: 1rem 1rem;
+  background-color: rgba(55, 65, 81, 0.6);
+  border: 1px solid rgb(75, 85, 99);
+  border-radius: 0.5rem;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.input-email-custom::placeholder {
+  color: rgb(156, 163, 175);
+}
+
+.input-email-custom:focus {
+  border-color: rgb(34, 197, 94);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
+}
+
+.input-icon-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 0.75rem;
+}
+
+.input-icon-svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgb(156, 163, 175);
+}
+
+.input-glow {
+  transition: all 0.3s ease;
+}
+
+.input-glow:focus {
+  box-shadow: 0 0 25px rgba(9, 229, 126, 0.4),
+    0 0 50px rgba(9, 229, 123, 0.2);
+    border-color: rgba(9, 229, 115, 0.6);
+}
+
+
+/* SELECT CUSTOM */
+.select-services {
+  font-size: 16px;
+  width: 100%;
+  padding: 1rem 1rem;
+  background-color: rgba(55, 65, 81, 0.6);
+  border: 1px solid rgb(75, 85, 99);
+  border-radius: 0.5rem;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: pointer;
+  
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.select-services:focus {
+  box-shadow: 0 0 25px rgba(9, 229, 126, 0.4),
+    0 0 50px rgba(9, 229, 123, 0.2);
+  border-color: rgba(9, 229, 115, 0.6);
+}
+
+.select-services option {
+  background-color: rgb(34, 34, 34);
+  color: white;
+  padding: 1rem;
+}
+
+.select-services option:disabled {
+  color: rgb(156, 163, 175);
+}
+
+
+
+
+/* SUBMIT BUTTON */
+.button-submit-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.btn-submit-custom {
+  font-size: 16px;
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit-custom span {
+  font-size: 16px;
+}
+
+
+.btn-primary {
+  background: linear-gradient(135deg, #006418 0%, #07b237 100%);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 10px rgba(9, 229, 123, 0.1),
+  0 0 10px rgba(9, 229, 64, 0.1);
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+
+
+
+
+/* ================ FOOTER ================ */
+.footer-container {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+.footer-p {
+  color: #9ca3af;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+
+
+
+
+/* ================ LOADER ================ */
+.loader {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #09e577;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+
+
+
+
+/* ================ SOCIAL MEDIA ICONS ================ */
+.social-icons {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 100;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 34, 34, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.social-icon.instagram:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+}
+
+.social-icon.whatsapp:hover {
+  background: #25d366;
+}
+
+.social-icon.facebook:hover {
+  background: #3b5998;
+}
+
+.social-icon.twitter:hover {
+  background: #1da1f2;
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+/* ================ ANIMATIONS ================ */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  66% {
+   transform: translateY(10px) rotate(-2deg);
+  }
+}
+
+
+@keyframes logoGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px rgba(13, 229, 9, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(13, 229, 9, 0.9));
+  }
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
