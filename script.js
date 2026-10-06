@@ -1,34 +1,5 @@
 
 
-// ===================== CREATE SELECT =====================
-const $selectServices = document.createElement('select');
-
-$selectServices.classList.add("select-services");
-$selectServices .required = true;
-
-const $fixedOption = document.createElement('option');
-$fixedOption.value = "";
-
-$fixedOption.textContent = "Selecciona el servicio...";
-$fixedOption.selected = true;
-$fixedOption.disabled = true;
-$fixedOption.style.display = "none";
-$selectServices.appendChild($fixedOption);
-
-const optionsSelectServices = [
-  { value: 'netflix', text: 'Netflix' },
-  { value: 'disney', text: 'Disney' },
-];
-
-optionsSelectServices.forEach(data => {
-  const $option = document.createElement('option');
-  $option.value = data.value;
-  $option.textContent = data.text;
-  $selectServices.appendChild($option);
-});
-
-document.querySelector(".button-submit-container").before($selectServices);
-
 
 
 
@@ -41,7 +12,6 @@ document
     e.preventDefault();
 
     const $form = document.getElementById('netflixForm');
-    const $select = document.querySelector('.select-services');
     const $submitButton = document.querySelector('button[type="submit"]');
     const $loader = document.querySelector(`.loader`);
     const $span = $submitButton.querySelector("span");
@@ -65,7 +35,7 @@ document
           'Content-Type': 'application/json'
         },
 
-        body: JSON.stringify({ email, serviceName: $select.value })
+        body: JSON.stringify({ email })
       });
 
       if (response.ok) {
